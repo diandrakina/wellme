@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:well_me/pages/sleep.dart';
 import 'package:well_me/styles/styles.dart';
+import 'package:well_me/widget/bottomNavbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.background),
         useMaterial3: true,
       ),
-      home: const SleepPage(),
+      home: const BottomNavbar(),
     );
   }
 }
