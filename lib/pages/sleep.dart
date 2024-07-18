@@ -15,70 +15,9 @@ class SleepPage extends StatefulWidget {
 class _SleepPageState extends State<SleepPage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          toolbarHeight: 80,
-          leadingWidth: double.maxFinite,
-          leading: Builder(
-            builder: (context) {
-              return Container(
-                color: AppColors.background,
-                child: Row(
-                  children: [
-                    const Padding(padding: EdgeInsets.all(10)),
-                    Container(
-                      height: 50,
-                      width: 50,
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/logo.png'),
-                              fit: BoxFit.cover)),
-                    ),
-                    const SizedBox(
-                      width: 190,
-                    ),
-                    const FaIcon(
-                      FontAwesomeIcons.fire,
-                      size: 25,
-                    ),
-                    const Padding(padding: EdgeInsets.all(2)),
-                    Text(
-                      "4",
-                      style: TextStyles.header,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const FaIcon(
-                      FontAwesomeIcons.bell,
-                      size: 25,
-                    ),
-                    const SizedBox(
-                      width: 15,
-                    ),
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image:
-                                  AssetImage('assets/images/profilePict.jpg'),
-                              fit: BoxFit.cover)),
-                    )
-                  ],
-                ),
-              );
-            },
-          ),
-        ),
-        body: Container(
-          color: AppColors.background,
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          width: double.maxFinite,
-          child: SingleChildScrollView(
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: SingleChildScrollView(
             // color: AppColors.background,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,8 +108,6 @@ class _SleepPageState extends State<SleepPage> {
               ],
             ),
           ),
-        ),
-      ),
-    );
+        );
   }
 }
