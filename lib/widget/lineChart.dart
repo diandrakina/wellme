@@ -19,7 +19,7 @@ class _LineChartBuildState extends State<LineChartBuild> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: 260,
+        height: 200,
         width: 300,
         child: LineChart(
           LineChartData(

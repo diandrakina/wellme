@@ -8,6 +8,7 @@ class AppColors {
   static const redBox = Color.fromRGBO(215, 56, 59, 1);
   static const reminderText = Color.fromRGBO(255, 216, 162, 1);
   static const detailBox = Color.fromRGBO(155, 189, 200, 1);
+  static const iconBg = Color.fromRGBO(68, 197, 242, 1);
 }
 
 class TextStyles {
@@ -16,6 +17,18 @@ class TextStyles {
       fontWeight: FontWeight.bold,
       fontSize: 24,
       color: Colors.black);
+
+  static TextStyle sleepDuration = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 32,
+      color: Colors.black);
+
+  static TextStyle sleepQuality = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.normal,
+      fontSize: 20,
+      color: Colors.white);
 
   static TextStyle reminder = const TextStyle(
       fontFamily: 'Poppins',
@@ -39,6 +52,12 @@ class TextStyles {
       fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
       fontSize: 20,
+      color: Colors.black);
+
+  static TextStyle statisticTitle = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
       color: Colors.black);
 
   static TextStyle graph = const TextStyle(
