@@ -7,6 +7,7 @@ class AppColors {
   static const informationBox = Color.fromRGBO(166, 220, 239, 1);
   static const redBox = Color.fromRGBO(215, 56, 59, 1);
   static const reminderText = Color.fromRGBO(255, 216, 162, 1);
+  static const detailBox = Color.fromRGBO(155, 189, 200, 1);
 }
 
 class TextStyles {
