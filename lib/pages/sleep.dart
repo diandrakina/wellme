@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced_calendar/flutter_advanced_calendar.dart';
-import 'package:well_me/pages/drink.dart';
-import 'package:well_me/pages/jogging.dart';
+// import 'package:flutter_advanced_calendar/flutter_advanced_calendar.dart';
 import 'package:well_me/styles/styles.dart';
+import 'package:flutter_advanced_calendar/flutter_advanced_calendar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:well_me/widget/bottomNavbar.dart';
 import 'package:well_me/widget/lineChart.dart';
 
 class SleepPage extends StatefulWidget {
@@ -16,8 +14,8 @@ class SleepPage extends StatefulWidget {
 
 class _SleepPageState extends State<SleepPage> {
   final _calendarControllerToday = AdvancedCalendarController.today();
-  final _calendarControllerCustom =
-      AdvancedCalendarController.custom(DateTime(2022, 10, 23));
+  // final _calendarControllerCustom =
+  //     AdvancedCalendarController.custom(DateTime(2022, 10, 23));
   final events = <DateTime>[
     DateTime.now(),
     // DateTime(2022, 10, 10),
