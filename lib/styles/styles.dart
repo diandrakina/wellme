@@ -39,4 +39,10 @@ class TextStyles {
       fontWeight: FontWeight.bold,
       fontSize: 20,
       color: Colors.black);
+
+  static TextStyle graph = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 14,
+      color: Colors.black);
 }
