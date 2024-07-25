@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:well_me/pages/sleep.dart';
-import 'package:well_me/styles/styles.dart';
 import 'package:well_me/tab_screen.dart';
-import 'package:well_me/widget/bottomNavbar.dart';
-import 'package:well_me/widget/lineChart.dart';
 
 final kColorScheme =
     ColorScheme.fromSeed(seedColor: const Color.fromARGB(1, 221, 243, 245));

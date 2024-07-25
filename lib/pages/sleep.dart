@@ -85,12 +85,11 @@ class _SleepPageState extends State<SleepPage> {
             ),
 
             //CONTAINER RECORD
-            Container(
-              width: double.maxFinite,
-              height: 50,
-              decoration: BoxDecoration(
-                  color: AppColors.recordBox,
-                  borderRadius: BorderRadius.circular(12)),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(400, 50),
+                  backgroundColor: AppColors.recordBox),
+              onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -109,6 +108,7 @@ class _SleepPageState extends State<SleepPage> {
                 ],
               ),
             ),
+
             const SizedBox(
               height: 20,
             ),
@@ -116,15 +116,30 @@ class _SleepPageState extends State<SleepPage> {
             //CALENDAR
             TableCalendar(
               rowHeight: 40,
-              headerStyle: const HeaderStyle(
-                  formatButtonVisible: false, titleCentered: true),
+              headerStyle: HeaderStyle(
+                  formatButtonVisible: false,
+                  titleCentered: true,
+                  titleTextStyle: TextStyles.record),
               availableGestures: AvailableGestures.all,
+              daysOfWeekHeight: 30,
+              daysOfWeekStyle: DaysOfWeekStyle(
+                  weekdayStyle: TextStyles.calendarDay,
+                  weekendStyle: TextStyles.calendarDay),
               focusedDay: DateTime.now(),
               firstDay: DateTime.utc(2010, 10, 16),
               lastDay: DateTime.utc(2030, 3, 14),
               onDaySelected: _onDaySelected,
               selectedDayPredicate: (day) => isSameDay(day, _selectedDay),
               calendarFormat: _calendarFormat,
+              calendarStyle: CalendarStyle(
+                  selectedDecoration: const BoxDecoration(
+                      color: AppColors.reminderBox, shape: BoxShape.circle),
+                  todayDecoration: const BoxDecoration(
+                      color: AppColors.iconBg, shape: BoxShape.circle),
+                  defaultTextStyle: TextStyles.calendar,
+                  selectedTextStyle: TextStyles.body,
+                  todayTextStyle: TextStyles.calendar,
+                  weekendTextStyle: TextStyles.calendar),
             ),
             Center(
               child: ElevatedButton(
@@ -138,57 +153,84 @@ class _SleepPageState extends State<SleepPage> {
             if (_selectedDay != null)
               Padding(
                 padding: const EdgeInsets.all(0),
-                child: Container(
-                  height: 120,
-                  width: double.maxFinite,
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: AppColors.informationBox,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 80,
-                        width: 80,
-                        decoration: const BoxDecoration(
-                            shape: BoxShape.circle, color: AppColors.iconBg),
-                        child: const Center(
-                          child: FaIcon(
-                            FontAwesomeIcons.moon,
-                            color: Colors.white,
-                            size: 45,
-                          ),
-                        ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 120,
+                      width: double.maxFinite,
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: AppColors.informationBox,
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Row(
                         children: [
                           Container(
-                            height: 30,
-                            width: 200,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: AppColors.redBox),
-                            child: Center(
-                              child: Text(
-                                "Bad Quality",
-                                style: TextStyles.sleepQuality,
+                            height: 80,
+                            width: 80,
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.iconBg),
+                            child: const Center(
+                              child: FaIcon(
+                                FontAwesomeIcons.moon,
+                                color: Colors.white,
+                                size: 45,
                               ),
                             ),
                           ),
-                          Text(
-                            "5.2 hrs",
-                            style: TextStyles.sleepDuration,
-                          )
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: 30,
+                                width: 200,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: AppColors.greenBox),
+                                child: Center(
+                                  child: Text(
+                                    "Good Quality",
+                                    style: TextStyles.sleepQuality,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                "10.2 hrs",
+                                style: TextStyles.sleepDuration,
+                              )
+                            ],
+                          ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 120,
+                      width: double.maxFinite,
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        image: const DecorationImage(
+                          image: AssetImage('assets/images/box_bayi_tidur.png'),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "YOU SLEEP LIKE A BABY!",
+                          style: TextStyles.fact,
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             const SizedBox(

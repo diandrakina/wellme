@@ -6,6 +6,7 @@ class AppColors {
   static const recordBox = Color.fromRGBO(242, 170, 170, 1);
   static const informationBox = Color.fromRGBO(166, 220, 239, 1);
   static const redBox = Color.fromRGBO(215, 56, 59, 1);
+  static const greenBox = Color.fromRGBO(59, 215, 56, 1);
   static const reminderText = Color.fromRGBO(255, 216, 162, 1);
   static const detailBox = Color.fromRGBO(155, 189, 200, 1);
   static const iconBg = Color.fromRGBO(68, 197, 242, 1);
@@ -17,6 +18,13 @@ class TextStyles {
       fontWeight: FontWeight.bold,
       fontSize: 24,
       color: Colors.black);
+
+  static TextStyle fact = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontStyle: FontStyle.italic,
+      fontSize: 2,
+      color: Colors.white);
 
   static TextStyle sleepDuration = const TextStyle(
       fontFamily: 'Poppins',
@@ -54,6 +62,12 @@ class TextStyles {
       fontSize: 20,
       color: Colors.black);
 
+  static TextStyle statisticHeader = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 20,
+      color: Colors.black);
+
   static TextStyle statisticTitle = const TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
@@ -65,4 +79,16 @@ class TextStyles {
       fontWeight: FontWeight.bold,
       fontSize: 14,
       color: Colors.black);
+
+  static TextStyle calendar = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 14,
+      color: Colors.black);
+
+  static TextStyle calendarDay = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+      color: Colors.grey);
 }
