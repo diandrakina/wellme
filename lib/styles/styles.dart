@@ -91,4 +91,10 @@ class TextStyles {
       fontWeight: FontWeight.bold,
       fontSize: 16,
       color: Colors.grey);
+
+  static TextStyle timer = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 54,
+      color: Colors.black);
 }

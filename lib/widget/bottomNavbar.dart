@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:well_me/pages/drink.dart';
 import 'package:well_me/pages/jogging.dart';
-import 'package:well_me/pages/sleep.dart';
+import 'package:well_me/pages/sleep/sleep.dart';
 import 'package:well_me/styles/styles.dart';
 
 class BottomNavbar extends StatefulWidget {

@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:well_me/pages/sleep/sleepRecord.dart';
 import 'package:well_me/styles/styles.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:well_me/widget/lineChart.dart';
@@ -28,6 +31,15 @@ class _SleepPageState extends State<SleepPage> {
           ? CalendarFormat.month
           : CalendarFormat.week;
     });
+  }
+
+  int seconds = 0, minutes = 0, hours = 0;
+  String digitSeconds = "00", digitMinutes = "00", digitHours = "00";
+  Timer? timer;
+  bool started = false;
+
+  void start() {
+    started = true;
   }
 
   @override
@@ -89,7 +101,14 @@ class _SleepPageState extends State<SleepPage> {
               style: ElevatedButton.styleFrom(
                   fixedSize: const Size(400, 50),
                   backgroundColor: AppColors.recordBox),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SleepRecordPage(),
+                  ),
+                );
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
