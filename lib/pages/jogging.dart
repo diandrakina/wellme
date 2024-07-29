@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:well_me/styles/styles.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:well_me/widget/bottomNavbar.dart';
+import 'joggingdetail.dart';
 
 class JoggingPage extends StatefulWidget {
   const JoggingPage({super.key});
@@ -116,7 +117,12 @@ class _JoggingPageState extends State<JoggingPage> {
                     foregroundColor: Colors.black,
                     elevation: 0,
                   ),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => JoggingDetailPage())
+                    );
+                  },
                 ),
               ],
             ),
