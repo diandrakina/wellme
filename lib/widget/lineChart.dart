@@ -10,7 +10,7 @@ class LineChartBuild extends StatefulWidget {
 }
 
 class _LineChartBuildState extends State<LineChartBuild> {
-  // final List<double> _sleepData = [42.5, 40.0, 45.0, 38.5];
+  final List<double> _sleepData = [42.5, 40.0, 45.0, 34];
 
   final List<Color> gradientColors = [
     const Color(0xff23b6e6),
@@ -18,6 +18,20 @@ class _LineChartBuildState extends State<LineChartBuild> {
   ];
 
   void _showDetail(double y) {
+    String qualityText;
+    Color containerColor;
+
+    if (y < 35) {
+      qualityText = "Bad Quality";
+      containerColor = AppColors.redBox;
+    } else if (y >= 35 && y <= 42) {
+      qualityText = "Good Quality";
+      containerColor = AppColors.greenBox;
+    } else {
+      qualityText = "Best Quality";
+      containerColor = Color.fromARGB(255, 0, 122, 6);
+    }
+
     showModalBottomSheet(
       context: context,
       builder: (context) => Container(
@@ -68,10 +82,10 @@ class _LineChartBuildState extends State<LineChartBuild> {
                         width: 170,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            color: AppColors.redBox),
+                            color: containerColor),
                         child: Center(
                           child: Text(
-                            "Bad Quality",
+                            qualityText,
                             style: TextStyles.sleepQuality,
                           ),
                         ),
@@ -116,12 +130,11 @@ class _LineChartBuildState extends State<LineChartBuild> {
                     strokeColor: Colors.white,
                   ),
                 ),
-                spots: [
-                  const FlSpot(0, 42.5),
-                  const FlSpot(1, 40),
-                  const FlSpot(2, 45),
-                  const FlSpot(3, 38.5)
-                ],
+                spots: _sleepData
+                    .asMap()
+                    .entries
+                    .map((e) => FlSpot(e.key.toDouble(), e.value))
+                    .toList(),
                 isCurved: true,
                 gradient: LinearGradient(colors: gradientColors),
                 barWidth: 5,
