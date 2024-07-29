@@ -23,7 +23,7 @@ class TextStyles {
       fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
       fontStyle: FontStyle.italic,
-      fontSize: 2,
+      fontSize: 20,
       color: Colors.white);
 
   static TextStyle sleepDuration = const TextStyle(
@@ -83,6 +83,18 @@ class TextStyles {
   static TextStyle calendar = const TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
+      fontSize: 14,
+      color: Colors.black);
+
+  static TextStyle notificationTitle = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+      color: Colors.black);
+
+  static TextStyle notificationSubtitle = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.normal,
       fontSize: 14,
       color: Colors.black);
 

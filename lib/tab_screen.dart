@@ -5,6 +5,7 @@ import 'package:well_me/pages/joggingdetail.dart';
 import 'package:well_me/pages/sleep/sleep.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:well_me/styles/styles.dart';
+import 'package:well_me/widget/notification.dart';
 
 class TabScreen extends StatefulWidget {
   @override
@@ -29,11 +30,15 @@ class _TabScreenState extends State<TabScreen> {
     });
   }
 
+  //Notification
+  int notificationCount = 5;
+
   @override
   Widget build(BuildContext context) {
     Widget activeScreen = pages[_selectedPageIndex];
     AppBar activeScreenAppBar = AppBar(
       toolbarHeight: 80,
+      backgroundColor: AppColors.background,
       leadingWidth: double.maxFinite,
       leading: Builder(
         builder: (context) {
@@ -43,7 +48,7 @@ class _TabScreenState extends State<TabScreen> {
               children: [
                 const Padding(padding: EdgeInsets.all(10)),
                 Container(
-                  height: 50,
+                  height: 55,
                   width: 50,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
@@ -62,16 +67,50 @@ class _TabScreenState extends State<TabScreen> {
                   "4",
                   style: TextStyles.header,
                 ),
-                const SizedBox(
-                  width: 10,
+
+                Stack(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NotificationPage(),
+                          ),
+                        );
+                      },
+                      icon: Icon(
+                        Icons.notifications,
+                        size: 35,
+                      ),
+                    ),
+                    Positioned(
+                      right: 11,
+                      top: 11,
+                      child: notificationCount > 0
+                          ? Container(
+                              // padding: EdgeInsets.all(2),
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(60),
+                              ),
+                              constraints: BoxConstraints(
+                                minWidth: 18,
+                                minHeight: 18,
+                              ),
+                              child: Text(
+                                '$notificationCount',
+                                style: TextStyles.time,
+                                textAlign: TextAlign.center,
+                              ),
+                            )
+                          : Container(),
+                    ),
+                  ],
                 ),
-                const FaIcon(
-                  FontAwesomeIcons.bell,
-                  size: 25,
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
+                // const FaIcon(
+                //   FontAwesomeIcons.bell,
+
                 Container(
                   height: 40,
                   width: 40,
