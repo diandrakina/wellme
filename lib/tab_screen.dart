@@ -67,50 +67,16 @@ class _TabScreenState extends State<TabScreen> {
                   "4",
                   style: TextStyles.header,
                 ),
-
-                Stack(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => NotificationPage(),
-                          ),
-                        );
-                      },
-                      icon: Icon(
-                        Icons.notifications,
-                        size: 35,
-                      ),
-                    ),
-                    Positioned(
-                      right: 11,
-                      top: 11,
-                      child: notificationCount > 0
-                          ? Container(
-                              // padding: EdgeInsets.all(2),
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(60),
-                              ),
-                              constraints: BoxConstraints(
-                                minWidth: 18,
-                                minHeight: 18,
-                              ),
-                              child: Text(
-                                '$notificationCount',
-                                style: TextStyles.time,
-                                textAlign: TextAlign.center,
-                              ),
-                            )
-                          : Container(),
-                    ),
-                  ],
+                const SizedBox(
+                  width: 10,
                 ),
-                // const FaIcon(
-                //   FontAwesomeIcons.bell,
-
+                const FaIcon(
+                  FontAwesomeIcons.bell,
+                  size: 25,
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
                 Container(
                   height: 40,
                   width: 40,
