@@ -49,18 +49,18 @@ class _ProfilePageState extends State<ProfilePage> {
                   borderRadius: BorderRadius.circular(12), color: Colors.amber),
               child: Column(
                 children: <Widget>[
-                  Expanded(
-                    child: HorizontalBarChart(_createSampleData1(),
-                        title: 'Chart 1'),
-                  ),
-                  Expanded(
-                    child: HorizontalBarChart(_createSampleData2(),
-                        title: 'Chart 2'),
-                  ),
-                  Expanded(
-                    child: HorizontalBarChart(_createSampleData3(),
-                        title: 'Chart 3'),
-                  ),
+                  // Expanded(
+                  //   child: HorizontalBarChart(_createSampleData1(),
+                  //       title: 'Chart 1'),
+                  // ),
+                  // Expanded(
+                  //   child: HorizontalBarChart(_createSampleData2(),
+                  //       title: 'Chart 2'),
+                  // ),
+                  // Expanded(
+                  //   child: HorizontalBarChart(_createSampleData3(),
+                  //       title: 'Chart 3'),
+                  // ),
                 ],
               ),
             ),
