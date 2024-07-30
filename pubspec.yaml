@@ -38,6 +38,8 @@ dependencies:
   timeline_tile: ^2.0.0
   # flutter_gifimage: ^3.0.1
   video_player: ^2.2.10
+  timeline_tile: ^2.0.0
+  panara_dialogs: ^0.1.5
 
 dev_dependencies:
   flutter_test:
