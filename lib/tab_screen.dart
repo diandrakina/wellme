@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:well_me/pages/drink.dart';
 import 'package:well_me/pages/jogging.dart';
 import 'package:well_me/pages/joggingdetail.dart';
+import 'package:well_me/pages/profile.dart';
 import 'package:well_me/pages/sleep/sleep.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:well_me/styles/styles.dart';
@@ -111,14 +112,25 @@ class _TabScreenState extends State<TabScreen> {
                 // const FaIcon(
                 //   FontAwesomeIcons.bell,
 
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: const BoxDecoration(
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfilePage(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
                           image: AssetImage('assets/images/profilePict.jpg'),
-                          fit: BoxFit.cover)),
+                          fit: BoxFit.cover),
+                    ),
+                  ),
                 )
               ],
             ),
