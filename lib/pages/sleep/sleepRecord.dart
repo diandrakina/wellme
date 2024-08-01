@@ -180,7 +180,7 @@ class _SleepRecordPageState extends State<SleepRecordPage> {
             Padding(padding: EdgeInsets.all(6)),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: AppColors.reminderBox,
+                backgroundColor: AppColors.reminderBox,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
                 ),
