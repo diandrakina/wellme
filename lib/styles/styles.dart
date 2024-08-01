@@ -50,6 +50,12 @@ class TextStyles {
       fontSize: 16.4,
       color: Colors.white);
 
+  static TextStyle body2 = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 14,
+      color: Colors.black);
+
   static TextStyle time = const TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.normal,

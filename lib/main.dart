@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:well_me/check.dart';
+import 'package:well_me/tab_screen.dart';
 
 final kColorScheme =
     ColorScheme.fromSeed(seedColor: const Color.fromARGB(1, 221, 243, 245));
@@ -9,13 +10,14 @@ final darkKColorScheme = ColorScheme.fromSeed(
 );
 void main() {
   runApp(MaterialApp(
-    theme: ThemeData().copyWith(
-      colorScheme: kColorScheme,
-      scaffoldBackgroundColor: const Color.fromARGB(255, 221, 243, 245),
-    ),
-    debugShowCheckedModeBanner: false,
-    title: 'Well Me',
-    home: Check(),
-    // home: LineChartBuild(),
-  ));
+      theme: ThemeData().copyWith(
+        colorScheme: kColorScheme,
+        scaffoldBackgroundColor: const Color.fromARGB(255, 221, 243, 245),
+      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Well Me',
+      // home: Check(),
+      home: TabScreen()
+      // home: LineChartBuild(),
+      ));
 }
