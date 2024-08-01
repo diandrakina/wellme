@@ -20,14 +20,13 @@ class JoggingPage extends StatefulWidget {
 class _JoggingPageState extends State<JoggingPage> {
   List<Jog> jogs = generateJogData();
 
-  DateTime? _selectedDay;
+  DateTime _selectedDay = DateTime.now();
   DateTime _focusedDay = DateTime.now();
   CalendarFormat _calendarFormat = CalendarFormat.week;
 
   void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
     setState(() {
       _selectedDay = selectedDay;
-      _focusedDay = focusedDay;
     });
   }
 
@@ -41,12 +40,13 @@ class _JoggingPageState extends State<JoggingPage> {
 
   @override
   Widget build(BuildContext context) {
-    Jog jog = jogs
-        .where((element) =>
-            element.date.year == _focusedDay.year &&
-            element.date.month == _focusedDay.month &&
-            element.date.day == _focusedDay.day)
-        .first;
+    Jog jog = jogs.firstWhere(
+  (element) =>
+      element.date.year == _selectedDay!.year &&
+      element.date.month == _selectedDay?.month &&
+      element.date.day == _selectedDay?.day,
+  orElse: () => null, // Returns null if no match is found
+);
 
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
@@ -221,9 +221,8 @@ class _JoggingPageState extends State<JoggingPage> {
               height: 20,
             ),
             if (_selectedDay != null &&
-                (_selectedDay!.isBefore(DateTime.now()) ||
-                    _selectedDay!.isAtSameMomentAs(DateTime.now())) &&
-                _selectedDay!.isAfter(DateTime(2024, 7, 1)))
+                (_selectedDay!.isBefore(DateTime.now()) &&
+                    _selectedDay!.isAfter(DateTime(2024, 7, 1))))
               JoggingProgress(
                 jog: jog,
               ),

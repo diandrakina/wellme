@@ -49,7 +49,7 @@ class _SleepPageState extends State<SleepPage> {
 
   @override
   Widget build(BuildContext context) {
-    Sleep sleep = sleeps
+    Sleep? sleep = sleeps
         .where((element) =>
             element.date.year == _focusedDay.year &&
             element.date.month == _focusedDay.month &&

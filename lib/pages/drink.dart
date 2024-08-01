@@ -39,7 +39,7 @@ class _DrinkPageState extends State<DrinkPage> {
 
   @override
   Widget build(BuildContext context) {
-    Drink selectedDrinkData = drinkData
+    Drink? selectedDrinkData = drinkData
         .where((element) =>
             element.date.year == _focusedDay.year &&
             element.date.month == _focusedDay.month &&
@@ -146,7 +146,7 @@ class _DrinkPageState extends State<DrinkPage> {
             if (_selectedDay != null &&
                 (_selectedDay!.isBefore(DateTime.now()) ||
                     _selectedDay!.isAtSameMomentAs(DateTime.now())) &&
-                _selectedDay!.isAfter(DateTime(2024, 7, 1)) && selectedDrinkData != null)
+                _selectedDay!.isAfter(DateTime(2024, 7, 1)))
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
