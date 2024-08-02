@@ -13,29 +13,40 @@ class AppColors {
 }
 
 class TextStyles {
-  static TextStyle header = const TextStyle(
+  static TextStyle header_activity = const TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
-      fontSize: 24,
+      fontSize: 20,
+      color: Colors.white);
+
+  static TextStyle description_activity = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 14,
+      color: Colors.black);
+  static TextStyle description_activity2 = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 12,
       color: Colors.black);
 
   static TextStyle fact = const TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
       fontStyle: FontStyle.italic,
-      fontSize: 20,
+      fontSize: 24,
       color: Colors.white);
-
-  static TextStyle sleepDuration = const TextStyle(
-      fontFamily: 'Poppins',
-      fontWeight: FontWeight.bold,
-      fontSize: 32,
-      color: Colors.black);
 
   static TextStyle sleepQuality = const TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.normal,
       fontSize: 20,
+      color: Colors.white);
+
+  static TextStyle time = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.normal,
+      fontSize: 12.48,
       color: Colors.white);
 
   static TextStyle reminder = const TextStyle(
@@ -50,17 +61,29 @@ class TextStyles {
       fontSize: 16.4,
       color: Colors.white);
 
+  static TextStyle header = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 24,
+      color: Colors.black);
+
   static TextStyle body2 = const TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
       fontSize: 14,
       color: Colors.black);
 
-  static TextStyle time = const TextStyle(
+  static TextStyle sleepDuration = const TextStyle(
       fontFamily: 'Poppins',
-      fontWeight: FontWeight.normal,
-      fontSize: 12.48,
-      color: Colors.white);
+      fontWeight: FontWeight.bold,
+      fontSize: 32,
+      color: Colors.black);
+
+  static TextStyle percentWater = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 24,
+      color: Colors.black);
 
   static TextStyle record = const TextStyle(
       fontFamily: 'Poppins',
@@ -71,6 +94,12 @@ class TextStyles {
   static TextStyle statisticHeader = const TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
+      fontSize: 20,
+      color: Colors.black);
+
+  static TextStyle bodyblacknormal = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.normal,
       fontSize: 20,
       color: Colors.black);
 
@@ -104,15 +133,33 @@ class TextStyles {
       fontSize: 14,
       color: Colors.black);
 
-  static TextStyle calendarDay = const TextStyle(
+  static TextStyle run_detail = const TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
-      fontSize: 16,
-      color: Colors.grey);
+      fontSize: 18,
+      color: Colors.black);
 
   static TextStyle timer = const TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
       fontSize: 54,
       color: Colors.black);
+
+  static TextStyle calendarDay = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+      color: Colors.grey);
+
+  static TextStyle active = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 20,
+      color: AppColors.redBox);
+
+  static TextStyle header_activity_pink = const TextStyle(
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.bold,
+      fontSize: 20,
+      color: AppColors.reminderBox);
 }

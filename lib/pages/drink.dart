@@ -16,6 +16,7 @@ class DrinkPage extends StatefulWidget {
 }
 
 class _DrinkPageState extends State<DrinkPage> {
+  final List<double> _drinkData = [65.0, 70.0, 40.0, 55.0];
   DateTime? _selectedDay;
   DateTime _focusedDay = DateTime.now();
 
@@ -179,7 +180,11 @@ class _DrinkPageState extends State<DrinkPage> {
                       "July",
                       style: TextStyles.record,
                     ),
-                    LineChartBuild()
+                    LineChartBuild(
+                      timeChart: _drinkData,
+                      maxY: 100,
+                      cases: 1,
+                    )
                   ],
                 ),
               ),

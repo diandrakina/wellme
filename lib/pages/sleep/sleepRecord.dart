@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+import 'package:well_me/pages/sleep/sleep.dart';
 import 'package:well_me/styles/styles.dart';
 import 'package:well_me/widget/myTimelineTile.dart';
 
@@ -122,78 +124,119 @@ class _SleepRecordPageState extends State<SleepRecordPage> {
         ),
       ),
       body: Center(
-        child: Column(
-          children: [
-            Padding(padding: EdgeInsets.all(8)),
-            Image.asset('assets/sleep.gif'),
-            Padding(padding: EdgeInsets.all(16)),
-            Container(
-              height: 390,
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Column(
-                    children: [
-                      MyTimelineTile(
-                        isFirst: true,
-                        isLast: false,
-                        isPast: true,
-                        activity: "You Snore",
-                        time: "22.00",
-                        picture: "assets/images/snore.png",
-                      ),
-                      MyTimelineTile(
-                          isFirst: false,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // Padding(padding: EdgeInsets.all(8)),
+              Container(
+                height: 320,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/sleep2.gif'),
+                        fit: BoxFit.cover)),
+              ),
+              // Image.asset('assets/sleep2.gif'),
+              Padding(padding: EdgeInsets.all(8)),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.reminderBox,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                ),
+                onPressed: () {
+                  stop();
+                  PanaraConfirmDialog.show(
+                    context,
+                    title: "Restart or Save?",
+                    message: "Do you want to restart or save your record",
+                    cancelButtonText: "Restart",
+                    confirmButtonText: "Save",
+                    onTapCancel: () {
+                      reset();
+                      start();
+                      Navigator.pop(context);
+                    },
+                    onTapConfirm: () {
+                      PanaraInfoDialog.show(
+                        context,
+                        title: "Record saved",
+                        message: "Your sleep record for today is saved",
+                        buttonText: "Okay",
+                        onTapDismiss: () {
+                          Navigator.pop(context);
+                          Navigator.pop(context);
+                          Navigator.pop(context);
+                        },
+                        panaraDialogType: PanaraDialogType.normal,
+                        barrierDismissible: false,
+                      );
+                      reset();
+                    },
+                    panaraDialogType: PanaraDialogType.normal,
+                    barrierDismissible: false,
+                  );
+                },
+                child: Text(
+                  "Stop Record",
+                  style: TextStyles.body,
+                ),
+              ),
+              Padding(padding: EdgeInsets.all(8)),
+
+              Container(
+                height: 390,
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Column(
+                      children: [
+                        MyTimelineTile(
+                          isFirst: true,
                           isLast: false,
-                          isPast: false,
-                          activity: "You Talk",
-                          time: "00.15",
-                          picture: "assets/images/talk.png"),
-                      MyTimelineTile(
-                          isFirst: false,
-                          isLast: false,
-                          isPast: false,
+                          isPast: true,
                           activity: "You Snore",
-                          time: "00.30",
-                          picture: "assets/images/snore.png"),
-                      MyTimelineTile(
-                        isFirst: false,
-                        isLast: false,
-                        isPast: false,
-                        activity: "You Wake",
-                        time: "03.00",
-                        picture: "assets/images/wake.png",
-                      ),
-                      MyTimelineTile(
-                        isFirst: false,
-                        isLast: true,
-                        isPast: false,
-                        activity: "You Wake",
-                        time: "04.00",
-                        picture: "assets/images/wake.png",
-                      ),
-                    ],
+                          time: "22.00",
+                          picture: "assets/images/snore.png",
+                        ),
+                        MyTimelineTile(
+                            isFirst: false,
+                            isLast: false,
+                            isPast: false,
+                            activity: "You Talk",
+                            time: "00.15",
+                            picture: "assets/images/talk.png"),
+                        MyTimelineTile(
+                            isFirst: false,
+                            isLast: false,
+                            isPast: false,
+                            activity: "You Snore",
+                            time: "00.30",
+                            picture: "assets/images/snore.png"),
+                        MyTimelineTile(
+                          isFirst: false,
+                          isLast: false,
+                          isPast: false,
+                          activity: "You Wake",
+                          time: "03.00",
+                          picture: "assets/images/wake.png",
+                        ),
+                        MyTimelineTile(
+                          isFirst: false,
+                          isLast: true,
+                          isPast: false,
+                          activity: "You Wake",
+                          time: "04.00",
+                          picture: "assets/images/wake.png",
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            Padding(padding: EdgeInsets.all(6)),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.reminderBox,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-              ),
-              onPressed: () {
-                stop();
-              },
-              child: Text(
-                "Stop Record",
-                style: TextStyles.body,
-              ),
-            ),
-          ],
+              Padding(padding: EdgeInsets.all(6)),
+            ],
+          ),
         ),
       ),
       // bottomNavigationBar: BottomNavigationBar(items: ),

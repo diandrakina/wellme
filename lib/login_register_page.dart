@@ -37,20 +37,19 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
 
     _form.currentState!.save();
 
-      if (isLogin) {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Check(),
-            ));
-      } else {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Check(),
-            ));
-      }
-
+    if (isLogin) {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Check(),
+          ));
+    } else {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Check(),
+          ));
+    }
   }
 
   @override
@@ -62,6 +61,9 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
           TextFormField(
             decoration: InputDecoration(
               labelText: "Email",
+              labelStyle: TextStyle(fontFamily: 'Poppins'),
+              prefixStyle: TextStyle(fontFamily: 'Poppins'),
+              errorStyle: TextStyle(fontFamily: 'Poppins'),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
@@ -74,6 +76,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
             keyboardType: TextInputType.emailAddress,
             autocorrect: false,
             textCapitalization: TextCapitalization.none,
+            style: TextStyle(fontFamily: 'Poppins'),
             validator: (value) {
               if (value == null ||
                   value.trim().isEmpty ||
@@ -92,6 +95,9 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
           TextFormField(
             decoration: InputDecoration(
               labelText: "Password",
+              labelStyle: TextStyle(fontFamily: 'Poppins'),
+              prefixStyle: TextStyle(fontFamily: 'Poppins'),
+              errorStyle: TextStyle(fontFamily: 'Poppins'),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
@@ -112,6 +118,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
               contentPadding: const EdgeInsets.fromLTRB(10, 15, 0, 15),
             ),
             obscureText: isObscure,
+            style: TextStyle(fontFamily: 'Poppins'),
             validator: (value) {
               if (value!.length < 6) {
                 return "Please enter a password with atleast 6 character";
@@ -134,6 +141,9 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
             TextFormField(
               decoration: InputDecoration(
                 labelText: "First Name",
+                labelStyle: TextStyle(fontFamily: 'Poppins'),
+                prefixStyle: TextStyle(fontFamily: 'Poppins'),
+                errorStyle: TextStyle(fontFamily: 'Poppins'),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(
@@ -147,6 +157,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
               keyboardType: TextInputType.name,
               autocorrect: false,
               textCapitalization: TextCapitalization.none,
+              style: TextStyle(fontFamily: 'Poppins'),
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
                   return "Please enter a name!";
@@ -163,6 +174,9 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
             TextFormField(
               decoration: InputDecoration(
                 labelText: "Last Name",
+                labelStyle: TextStyle(fontFamily: 'Poppins'),
+                prefixStyle: TextStyle(fontFamily: 'Poppins'),
+                errorStyle: TextStyle(fontFamily: 'Poppins'),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(
@@ -175,6 +189,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
               keyboardType: TextInputType.name,
               autocorrect: false,
               textCapitalization: TextCapitalization.none,
+              style: TextStyle(fontFamily: 'Poppins'),
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
                   return "Please enter a name!";
@@ -191,6 +206,9 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
             TextFormField(
               decoration: InputDecoration(
                 labelText: "Email",
+                labelStyle: TextStyle(fontFamily: 'Poppins'),
+                prefixStyle: TextStyle(fontFamily: 'Poppins'),
+                errorStyle: TextStyle(fontFamily: 'Poppins'),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(
@@ -203,6 +221,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
               textCapitalization: TextCapitalization.none,
+              style: TextStyle(fontFamily: 'Poppins'),
               validator: (value) {
                 if (value == null ||
                     value.trim().isEmpty ||
@@ -221,6 +240,9 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
             TextFormField(
               decoration: InputDecoration(
                 labelText: "Password",
+                labelStyle: TextStyle(fontFamily: 'Poppins'),
+                prefixStyle: TextStyle(fontFamily: 'Poppins'),
+                errorStyle: TextStyle(fontFamily: 'Poppins'),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(
@@ -240,6 +262,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
                 contentPadding: const EdgeInsets.fromLTRB(10, 15, 0, 15),
                 counterText: "",
               ),
+              style: TextStyle(fontFamily: 'Poppins'),
               validator: (value) {
                 if (value!.length < 6) {
                   return "Please enter a password with atleast 6 character";
@@ -258,6 +281,9 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
             TextFormField(
               decoration: InputDecoration(
                 labelText: "Confirm your password",
+                labelStyle: TextStyle(fontFamily: 'Poppins'),
+                prefixStyle: TextStyle(fontFamily: 'Poppins'),
+                errorStyle: TextStyle(fontFamily: 'Poppins'),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(
@@ -278,6 +304,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
                 counterText: "",
               ),
               obscureText: isObscure,
+              style: TextStyle(fontFamily: 'Poppins'),
               validator: (value) {
                 if (value!.length < 6) {
                   return "Please enter a password with atleast 6 character";
@@ -318,6 +345,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
                   isLogin ? 'Sign In' : "Sign Up",
                   style: const TextStyle(
                     fontSize: 35,
+                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -335,6 +363,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
                         "Forgot password?",
                         style: TextStyle(
                           color: Color.fromRGBO(120, 0, 1, 10),
+                          fontFamily: 'Poppins',
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -349,14 +378,16 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
                   style: ElevatedButton.styleFrom(
                     padding: isLogin
                         ? const EdgeInsets.fromLTRB(144, 13, 144, 13)
-                        : const EdgeInsets.fromLTRB(136, 13, 136, 13),
+                        : const EdgeInsets.fromLTRB(130, 13, 136, 13),
                     backgroundColor: const Color.fromRGBO(1, 47, 71, 1),
                     foregroundColor: const Color.fromRGBO(255, 255, 255, 1),
                   ),
                   child: Text(
                     isLogin ? "Sign In" : "Join Now",
                     style: const TextStyle(
-                        fontSize: 17, fontWeight: FontWeight.bold),
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Poppins'),
                   ),
                 ),
                 if (isLogin)
@@ -370,9 +401,9 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
                       Text(
                         '- Or sign in with -',
                         style: TextStyle(
-                          color: Color.fromRGBO(127, 127, 127, 10),
-                          fontWeight: FontWeight.bold,
-                        ),
+                            color: Color.fromRGBO(127, 127, 127, 10),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poppins'),
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -460,8 +491,8 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
                           ? 'Don\'t have an account?'
                           : 'Already have an account?',
                       style: const TextStyle(
-                        color: Color.fromRGBO(26, 26, 19, 10),
-                      ),
+                          color: Color.fromRGBO(26, 26, 19, 10),
+                          fontFamily: 'Poppins'),
                     ),
                     TextButton(
                       onPressed: () {
@@ -473,6 +504,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
                       child: Text(
                         isLogin ? "Sign up" : "Sign in",
                         style: const TextStyle(
+                          fontFamily: 'Poppins',
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline,

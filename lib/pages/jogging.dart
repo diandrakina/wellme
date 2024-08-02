@@ -19,7 +19,7 @@ class JoggingPage extends StatefulWidget {
 
 class _JoggingPageState extends State<JoggingPage> {
   List<Jog> jogs = generateJogData();
-
+  final List<double> _joggingData = [14.1, 7.0, 5.0, 9.4];
   DateTime _selectedDay = DateTime.now();
   DateTime _focusedDay = DateTime.now();
   CalendarFormat _calendarFormat = CalendarFormat.week;
@@ -41,12 +41,12 @@ class _JoggingPageState extends State<JoggingPage> {
   @override
   Widget build(BuildContext context) {
     Jog jog = jogs.firstWhere(
-  (element) =>
-      element.date.year == _selectedDay!.year &&
-      element.date.month == _selectedDay?.month &&
-      element.date.day == _selectedDay?.day,
-  orElse: () => null, // Returns null if no match is found
-);
+      (element) =>
+          element.date.year == _selectedDay!.year &&
+          element.date.month == _selectedDay?.month &&
+          element.date.day == _selectedDay?.day,
+      // orElse: () => null, // Returns null if no match is found
+    );
 
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
@@ -60,44 +60,44 @@ class _JoggingPageState extends State<JoggingPage> {
 
             // CONTAINER REMINDER
             Container(
-                width: double.maxFinite,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: AppColors.reminderBox,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    const Padding(padding: EdgeInsets.all(10)),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(padding: EdgeInsets.all(5)),
-                        Text(
-                          "Reminder",
-                          style: TextStyles.reminder,
-                        ),
-                        Text(
-                          "It's your time to move!",
-                          style: TextStyles.body,
-                        ),
-                        Text(
-                          "13.00 - 15.00",
-                          style: TextStyles.time,
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 71,
-                    ),
-                    const Icon(
-                      Icons.alarm,
-                      size: 75,
-                      color: Colors.white,
-                    )
-                  ],
-                )),
-
+              width: double.maxFinite,
+              height: 100,
+              decoration: BoxDecoration(
+                color: AppColors.reminderBox,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                children: [
+                  const Padding(padding: EdgeInsets.all(10)),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(padding: EdgeInsets.all(5)),
+                      Text(
+                        "Reminder",
+                        style: TextStyles.reminder,
+                      ),
+                      Text(
+                        "It's your time to move!",
+                        style: TextStyles.body,
+                      ),
+                      Text(
+                        "13.00 - 15.00",
+                        style: TextStyles.time,
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    width: 71,
+                  ),
+                  const Icon(
+                    Icons.alarm,
+                    size: 75,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -106,46 +106,41 @@ class _JoggingPageState extends State<JoggingPage> {
             Container(
               padding: EdgeInsets.only(top: 15),
               width: double.maxFinite,
-              height: 170,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/map.png'),
-                      fit: BoxFit.cover)),
+              height: 180,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                image: DecorationImage(
+                    image: AssetImage('assets/images/map.png'),
+                    fit: BoxFit.cover),
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Be ",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                        ),
-                      ),
-                      Text(
-                        "ACTIVE",
-                        style: TextStyle(
-                          color: AppColors.redBox,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      Text("Be ", style: TextStyles.record),
+                      Text("ACTIVE", style: TextStyles.active),
                     ],
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  Text("Take a walk, enjoy the nature, get a healthy body"),
+                  Text(
+                    "Take a walk, enjoy the nature,\n get a healthy body",
+                    style: TextStyles.notificationSubtitle,
+                    textAlign: TextAlign.center,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
                   ElevatedButton(
-                    child: const Text("Start Now"),
+                    child: Text(
+                      "Start Now",
+                      style: TextStyles.body,
+                    ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.recordBox,
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.redBox,
                       elevation: 0,
                     ),
                     onPressed: () {
@@ -244,7 +239,11 @@ class _JoggingPageState extends State<JoggingPage> {
                     "July",
                     style: TextStyles.record,
                   ),
-                  LineChartBuild()
+                  LineChartBuild(
+                    timeChart: _joggingData,
+                    maxY: 20,
+                    cases: 2,
+                  )
                 ],
               ),
             ),

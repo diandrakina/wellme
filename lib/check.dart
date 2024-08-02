@@ -25,7 +25,7 @@ class _CheckState extends State<Check> {
         ),
         title: Text(
           'Customize',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
         ),
         backgroundColor: AppColors.background,
       ),
@@ -36,14 +36,7 @@ class _CheckState extends State<Check> {
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text(
-                'What is your gender',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              child: Text('What is your gender', style: TextStyles.record),
             ),
             SizedBox(height: 10),
             Padding(
@@ -118,6 +111,7 @@ class _CheckState extends State<Check> {
                   Text(
                     '0',
                     style: TextStyle(
+                      fontFamily: 'Poppins',
                       fontSize: 15,
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
@@ -126,6 +120,7 @@ class _CheckState extends State<Check> {
                   Text(
                     '100',
                     style: TextStyle(
+                      fontFamily: 'Poppins',
                       fontSize: 15,
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
@@ -170,6 +165,7 @@ class _CheckState extends State<Check> {
                   Text(
                     '0',
                     style: TextStyle(
+                      fontFamily: 'Poppins',
                       fontSize: 15,
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
@@ -178,6 +174,7 @@ class _CheckState extends State<Check> {
                   Text(
                     '200',
                     style: TextStyle(
+                      fontFamily: 'Poppins',
                       fontSize: 15,
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
@@ -222,6 +219,7 @@ class _CheckState extends State<Check> {
                   Text(
                     '0',
                     style: TextStyle(
+                      fontFamily: 'Poppins',
                       fontSize: 15,
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
@@ -230,6 +228,7 @@ class _CheckState extends State<Check> {
                   Text(
                     '200',
                     style: TextStyle(
+                      fontFamily: 'Poppins',
                       fontSize: 15,
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
@@ -245,11 +244,16 @@ class _CheckState extends State<Check> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: AppColors.reminderBox),
                     onPressed: () {
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) => TabScreen()));
                     },
-                    child: Text('Next'),
+                    child: Text(
+                      'Next',
+                      style: TextStyles.body,
+                    ),
                   ),
                 ),
               ],

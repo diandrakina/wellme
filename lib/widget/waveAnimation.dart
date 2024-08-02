@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:well_me/check.dart';
+import 'package:well_me/styles/styles.dart';
 
 class WaveAnimation extends StatefulWidget {
   const WaveAnimation({
@@ -46,11 +47,11 @@ class _WaveAnimationState extends State<WaveAnimation>
       counter = counter + 10;
     });
     if (counter > 100) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         backgroundColor: Colors.white,
         content: Text(
           'Goal Achieved',
-          style: TextStyle(color: Colors.black),
+          style: TextStyles.body2,
         ),
       ));
       counter = 100;
@@ -96,6 +97,7 @@ class _WaveAnimationState extends State<WaveAnimation>
               style: const TextStyle(
                 fontSize: 120,
                 color: Colors.white,
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -110,9 +112,9 @@ class _WaveAnimationState extends State<WaveAnimation>
                   Icons.water_drop,
                   color: Colors.blue,
                 ),
-                label: const Text(
+                label: Text(
                   'Add Water',
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyles.body2,
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,

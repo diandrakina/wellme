@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:well_me/check.dart';
+import 'package:well_me/login_register_page.dart';
+import 'package:well_me/pages/sleep/sleep.dart';
 import 'package:well_me/tab_screen.dart';
 
 final kColorScheme =
@@ -16,8 +18,9 @@ void main() {
       ),
       debugShowCheckedModeBanner: false,
       title: 'Well Me',
+      // home: SleepPage(),
       // home: Check(),
-      home: TabScreen()
+      home: LoginRegisterPage()
       // home: LineChartBuild(),
       ));
 }

@@ -12,14 +12,14 @@ import 'package:timeline_tile/timeline_tile.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 // import 'package:pedometer/pedometer.dart';
 
-class JoggingDetailPage extends StatefulWidget{
+class JoggingDetailPage extends StatefulWidget {
   const JoggingDetailPage({super.key});
 
   @override
   State<JoggingDetailPage> createState() => _JoggingDetailPageState();
 }
 
-class _JoggingDetailPageState extends State<JoggingDetailPage>{
+class _JoggingDetailPageState extends State<JoggingDetailPage> {
   int seconds = 0, minutes = 0, hours = 0;
   String digitSeconds = "00", digitMinutes = "00", digitHours = "00";
   Timer? timer;
@@ -31,33 +31,30 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
   late VideoPlayerController _controller;
   // late Stream<StepCount> stepCountStream;
 
-  void initState(){
+  void initState() {
     super.initState();
     _controller = VideoPlayerController.asset(
       'assets/videos/wellmejogging.mp4',
-    )
-    ..initialize().then((_){
-      setState(() {});
-      start();
-      _controller.play();
-      _controller.setLooping(true);
+    )..initialize().then((_) {
+        setState(() {});
+        start();
+        _controller.play();
+        _controller.setLooping(true);
 
-      // stepCountStream = Pedometer.stepCountStream;
-      // stepCountStream.listen(onStepCount).onError(onStepCountError);
-    });
+        // stepCountStream = Pedometer.stepCountStream;
+        // stepCountStream.listen(onStepCount).onError(onStepCountError);
+      });
   }
 
-  void startStepTimer(){
-
-    stepTimer = Timer.periodic(
-      Duration(seconds:2), (timer){
-        if(isRunning){
-          setState(() {
-            stepCounter += 1;
-            print("Step count updated: $stepCounter");
-          });
-        }
-      });
+  void startStepTimer() {
+    stepTimer = Timer.periodic(Duration(seconds: 2), (timer) {
+      if (isRunning) {
+        setState(() {
+          stepCounter += 1;
+          print("Step count updated: $stepCounter");
+        });
+      }
+    });
   }
 
   // void onStepCount(StepCount event){
@@ -71,7 +68,7 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
   //   print('onStepCounterror: $error');
   // }
 
-  void stop(){
+  void stop() {
     timer!.cancel();
     stepTimer?.cancel();
     setState(() {
@@ -81,7 +78,7 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
     _controller.pause();
   }
 
-  void reset(){
+  void reset() {
     timer!.cancel();
     stepTimer!.cancel();
     setState(() {
@@ -101,26 +98,26 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
     _controller.pause();
   }
 
-  void start(){
+  void start() {
     setState(() {
       isRunning = true;
       isPaused = false;
     });
-    timer = Timer.periodic(Duration(seconds: 1), (timer){
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
       int localSeconds = seconds + 1;
       int localMinutes = minutes;
       int localHours = hours;
 
-      if (localSeconds > 59){
-        if (localMinutes > 59){
+      if (localSeconds > 59) {
+        if (localMinutes > 59) {
           localHours++;
           localMinutes = 0;
-        }else{
+        } else {
           localMinutes++;
           localSeconds = 0;
         }
       }
-      setState((){
+      setState(() {
         seconds = localSeconds;
         minutes = localMinutes;
         hours = localHours;
@@ -133,18 +130,18 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
     startStepTimer();
   }
 
-  double calculatedDistance(int steps){
+  double calculatedDistance(int steps) {
     const double stepsPerKm = 1350.0;
-    return steps/stepsPerKm;
+    return steps / stepsPerKm;
   }
 
-  double calculatedCalories(int steps){
+  double calculatedCalories(int steps) {
     const double stepsPerCalories = 100.0;
-    return steps/stepsPerCalories;
+    return steps / stepsPerCalories;
   }
 
   @override
-  void dispose () {
+  void dispose() {
     _controller.dispose();
     stepTimer?.cancel();
     super.dispose();
@@ -154,22 +151,32 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Current Jogging"),
+        toolbarHeight: 60,
+        backgroundColor: AppColors.background,
+        title: Text(
+          "Current Jogging",
+          style: TextStyles.record,
+        ),
       ),
       body: Stack(
         children: [
           Align(
             alignment: Alignment.bottomCenter,
-            child: _controller.value.isInitialized ? 
-            AspectRatio(aspectRatio: _controller.value.aspectRatio, child: VideoPlayer(_controller),) : CircularProgressIndicator(),
+            child: _controller.value.isInitialized
+                ? AspectRatio(
+                    aspectRatio: _controller.value.aspectRatio,
+                    child: VideoPlayer(_controller),
+                  )
+                : CircularProgressIndicator(),
           ),
+
           // DETAIL
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Container(
-                padding: const EdgeInsets.only(top:15, left:15),
+                padding: const EdgeInsets.only(top: 15, left: 15),
                 height: 180,
                 width: 370,
                 decoration: BoxDecoration(
@@ -188,29 +195,26 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Jogging Time"
+                                  "Jogging Time",
+                                  style: TextStyles.description_activity,
                                 ),
-                                Text(
-                                  "$digitHours:$digitMinutes:$digitSeconds",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                                Text("$digitHours:$digitMinutes:$digitSeconds",
+                                    style: TextStyles.sleepDuration),
                               ],
                             ),
                             const SizedBox(
                               width: 80,
                             ),
-                            IconButton( 
-                              icon: Icon(isPaused ? Icons.play_circle_fill : Icons.pause_circle_filled),
+                            IconButton(
+                              icon: Icon(isPaused
+                                  ? Icons.play_circle_fill
+                                  : Icons.pause_circle_filled),
                               iconSize: 50,
                               color: AppColors.iconBg,
-                              onPressed: (){
-                                if (isPaused){
+                              onPressed: () {
+                                if (isPaused) {
                                   start();
-                                }else{
+                                } else {
                                   stop();
                                 }
                               },
@@ -219,26 +223,28 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
                               icon: const Icon(Icons.stop_circle),
                               iconSize: 50,
                               color: AppColors.iconBg,
-                              onPressed: (){
+                              onPressed: () {
                                 stop();
                                 PanaraConfirmDialog.show(
                                   context,
                                   title: "Restart or Save?",
-                                  message: "Do you want to restart jogging or save your record",
+                                  message:
+                                      "Do you want to restart jogging or save your record",
                                   cancelButtonText: "Restart",
                                   confirmButtonText: "Save",
-                                  onTapCancel: (){
+                                  onTapCancel: () {
                                     reset();
                                     start();
                                     Navigator.pop(context);
                                   },
-                                  onTapConfirm: (){
+                                  onTapConfirm: () {
                                     PanaraInfoDialog.show(
                                       context,
                                       title: "Record saved",
-                                      message: "Your jogging record for today is saved",
+                                      message:
+                                          "Your jogging record for today is saved",
                                       buttonText: "Okay",
-                                      onTapDismiss: (){
+                                      onTapDismiss: () {
                                         Navigator.pop(context);
                                         Navigator.pop(context);
                                       },
@@ -276,7 +282,7 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Padding(padding: EdgeInsets.only(left:10)),
+                                    Padding(padding: EdgeInsets.only(left: 10)),
                                     const FaIcon(
                                       FontAwesomeIcons.personWalking,
                                       color: Colors.blue,
@@ -286,18 +292,16 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
                                     ),
                                     Column(
                                       mainAxisAlignment: MainAxisAlignment.end,
-                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
                                       children: [
                                         Text(
-                                          "${calculatedDistance(stepCounter).toStringAsFixed(2)}",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                                            "${calculatedDistance(stepCounter).toStringAsFixed(2)}",
+                                            style: TextStyles.run_detail),
                                         Text(
                                           "km",
+                                          style:
+                                              TextStyles.notificationSubtitle,
                                         ),
                                       ],
                                     )
@@ -314,7 +318,7 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Padding(padding: EdgeInsets.only(left:10)),
+                                    Padding(padding: EdgeInsets.only(left: 10)),
                                     const FaIcon(
                                       FontAwesomeIcons.fire,
                                       color: Colors.red,
@@ -324,18 +328,16 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
                                     ),
                                     Column(
                                       mainAxisAlignment: MainAxisAlignment.end,
-                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
                                       children: [
                                         Text(
-                                          "${calculatedCalories(stepCounter).toStringAsFixed(1)}",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                                            "${calculatedCalories(stepCounter).toStringAsFixed(1)}",
+                                            style: TextStyles.run_detail),
                                         Text(
                                           "kcal",
+                                          style:
+                                              TextStyles.notificationSubtitle,
                                         ),
                                       ],
                                     )
@@ -345,14 +347,15 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
 
                               // SUB-CONTAINER STEPS
                               Container(
-                                padding: EdgeInsets.only(top:10, left:10, bottom: 10),
+                                padding: EdgeInsets.only(
+                                    top: 10, left: 10, bottom: 10),
                                 width: 105,
                                 height: 70,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Padding(padding: EdgeInsets.only(left:10)),
+                                    Padding(padding: EdgeInsets.only(left: 10)),
                                     const FaIcon(
                                       FontAwesomeIcons.boltLightning,
                                       color: Color.fromARGB(255, 231, 208, 8),
@@ -362,18 +365,15 @@ class _JoggingDetailPageState extends State<JoggingDetailPage>{
                                     ),
                                     Column(
                                       mainAxisAlignment: MainAxisAlignment.end,
-                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
                                       children: [
-                                        Text(
-                                          "$stepCounter",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                                        Text("$stepCounter",
+                                            style: TextStyles.run_detail),
                                         Text(
                                           "steps",
+                                          style:
+                                              TextStyles.notificationSubtitle,
                                         ),
                                       ],
                                     )

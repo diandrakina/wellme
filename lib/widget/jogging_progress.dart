@@ -19,38 +19,39 @@ class JoggingProgress extends StatelessWidget {
           child: Column(
             children: [
               Container(
+                height: 150,
                 width: double.maxFinite,
-                height: 120,
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                    color: AppColors.informationBox,
-                    borderRadius: BorderRadius.circular(12)),
+                  color: AppColors.informationBox,
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Image.asset('assets/images/run.png',
-                        width: 100, height: 100),
+                    Container(
+                      height: 80,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/run.png'),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(padding: EdgeInsets.only(top: 12, right: 12)),
+                        Text("Morning Jogging",
+                            style: TextStyles.header_activity),
+                        Text(jog.duration, style: TextStyles.sleepDuration),
                         Text(
-                          "Jogging with Fredy",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        Text(
-                          jog.duration,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 27,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          "${jog.calories} kcal in ${jog.duration} with ${jog.steps} steps",
+                          "${jog.calories} kcal in ${jog.duration}\nwith ${jog.steps} steps",
+                          style: TextStyles.description_activity,
                         ),
                       ],
                     ),
@@ -62,7 +63,7 @@ class JoggingProgress extends StatelessWidget {
                 height: 20,
               ),
 
-              // CONTAINER DETAIL 1
+              // CONTAINER DETAIL 2
               Container(
                 padding: EdgeInsets.only(left: 20),
                 width: double.maxFinite,
@@ -78,24 +79,13 @@ class JoggingProgress extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "You burned calories of",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          "${jog.calories} kcal",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        Text("You burned calories of",
+                            style: TextStyles.description_activity),
+                        Text("${jog.calories} kcal",
+                            style: TextStyles.sleepDuration),
                         Text(
                           "It's equal to one grilled chicken breast!",
+                          style: TextStyles.description_activity2,
                         ),
                       ],
                     ),

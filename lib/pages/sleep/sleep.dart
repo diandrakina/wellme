@@ -19,7 +19,7 @@ class SleepPage extends StatefulWidget {
 
 class _SleepPageState extends State<SleepPage> {
   List<Sleep> sleeps = generateSleepData();
-
+  final List<double> _sleepData = [42.5, 40.0, 45.0, 34];
   DateTime? _selectedDay;
   DateTime _focusedDay = DateTime.now();
   CalendarFormat _calendarFormat = CalendarFormat.week;
@@ -159,12 +159,21 @@ class _SleepPageState extends State<SleepPage> {
                 headerStyle: HeaderStyle(
                     formatButtonVisible: false,
                     titleCentered: true,
+                    decoration: BoxDecoration(
+                      color: Colors.white, // Background color of the header
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     titleTextStyle: TextStyles.record),
                 availableGestures: AvailableGestures.all,
                 daysOfWeekHeight: 30,
                 daysOfWeekStyle: DaysOfWeekStyle(
-                    weekdayStyle: TextStyles.calendarDay,
-                    weekendStyle: TextStyles.calendarDay),
+                  weekdayStyle: TextStyles.calendarDay,
+                  weekendStyle: TextStyles.calendarDay,
+                  decoration: BoxDecoration(
+                    color: Colors
+                        .white, // Background color of the days of the week
+                  ),
+                ),
                 focusedDay: DateTime.now(),
                 firstDay: DateTime.utc(2010, 10, 16),
                 lastDay: DateTime.utc(2030, 3, 14),
@@ -172,14 +181,19 @@ class _SleepPageState extends State<SleepPage> {
                 selectedDayPredicate: (day) => isSameDay(day, _selectedDay),
                 calendarFormat: _calendarFormat,
                 calendarStyle: CalendarStyle(
-                    selectedDecoration: const BoxDecoration(
-                        color: AppColors.reminderBox, shape: BoxShape.circle),
-                    todayDecoration: const BoxDecoration(
-                        color: AppColors.iconBg, shape: BoxShape.circle),
-                    defaultTextStyle: TextStyles.calendar,
-                    selectedTextStyle: TextStyles.body,
-                    todayTextStyle: TextStyles.calendar,
-                    weekendTextStyle: TextStyles.calendar),
+                  selectedDecoration: const BoxDecoration(
+                      color: AppColors.reminderBox, shape: BoxShape.circle),
+                  todayDecoration: const BoxDecoration(
+                      color: AppColors.iconBg, shape: BoxShape.circle),
+                  defaultTextStyle: TextStyles.calendar,
+                  selectedTextStyle: TextStyles.body,
+                  todayTextStyle: TextStyles.calendar,
+                  weekendTextStyle: TextStyles.calendar,
+                  defaultDecoration: BoxDecoration(
+                    color: Colors
+                        .white, // Background color of the days of the week
+                  ),
+                ),
               ),
             ),
             Container(
@@ -227,7 +241,14 @@ class _SleepPageState extends State<SleepPage> {
                     "July",
                     style: TextStyles.record,
                   ),
-                  LineChartBuild()
+                  LineChartBuild(
+                    timeChart: _sleepData,
+                    maxY: 50,
+                    cases: 3,
+                  ),
+                  // LineChartBuild(
+                  // timeChart: [_sleepData],
+                  // )
                 ],
               ),
             )
