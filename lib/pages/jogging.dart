@@ -44,8 +44,8 @@ class _JoggingPageState extends State<JoggingPage> {
       (element) =>
           element.date.year == _selectedDay!.year &&
           element.date.month == _selectedDay?.month &&
-          element.date.day == _selectedDay?.day,
-      // orElse: () => null, // Returns null if no match is found
+          element.date.day ==
+              _selectedDay?.day, // Returns null if no match is found
     );
 
     return Padding(

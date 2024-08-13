@@ -250,3 +250,4 @@ class TweenWave extends Animatable<List<Offset>> {
     }, growable: false);
   }
 }
+
