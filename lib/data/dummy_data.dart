@@ -6,7 +6,7 @@ import 'package:well_me/model/sleep.dart';
 
 List<Drink> generateDrinkData() {
   final DateTime now = DateTime.now();
-  final int daysInMonth = DateTime(now.year, now.month + 1, 0).day;
+  final int daysInMonth = now.day; // Only generate for days up to today
   final Random random = Random();
 
   return List<Drink>.generate(daysInMonth, (index) {
@@ -23,6 +23,7 @@ List<Drink> generateDrinkData() {
     );
   });
 }
+
 
 List<Jog> generateJogData() {
   final Random random = Random();

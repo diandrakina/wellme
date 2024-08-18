@@ -18,7 +18,7 @@ class WaterProgress extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 125,
+          height: 120,
           width: double.maxFinite,
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
@@ -30,13 +30,14 @@ class WaterProgress extends StatelessWidget {
             children: [
               Center(
                 child: CircularPercentIndicator(
-                  radius: 48.0,
+                  radius: 40.0,
                   lineWidth: 5.0,
                   animation: true,
-                  percent: 1,
+                  percent: glassDrank/glassLimit,
                   center: Text(
                     (glassDrank * 100 / glassLimit).toString() + "%",
-                    style: TextStyles.percentWater,
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
                   circularStrokeCap: CircularStrokeCap.round,
                   backgroundColor: Colors.white,
@@ -72,7 +73,10 @@ class WaterProgress extends StatelessWidget {
                         " /" +
                         glassLimit.toString() +
                         " Glass of water",
-                    style: TextStyles.statisticHeader,
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500),
                   )
                 ],
               ),
@@ -83,7 +87,7 @@ class WaterProgress extends StatelessWidget {
           height: 20,
         ),
         Container(
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.only(left: 20),
           width: double.maxFinite,
           height: 120,
           decoration: BoxDecoration(
@@ -97,28 +101,31 @@ class WaterProgress extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Total water consumption",
-                      style: TextStyles.description_activity),
-                  Text(waterConsumption.toString(),
-                      style: TextStyles.sleepDuration),
+                  Text(
+                    "Total water consumption",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Text(
+                    waterConsumption.toString(),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   Text(
                     "1/2 galoon of water",
-                    style: TextStyles.description_activity2,
                   ),
                 ],
               ),
               const SizedBox(
-                width: 50,
+                width: 40,
               ),
-              Container(
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/galoon.png"),
-                      fit: BoxFit.cover),
-                ),
-              ),
+              Image.asset('assets/images/galoon.png', width: 100, height: 130),
             ],
           ),
         ),

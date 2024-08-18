@@ -1,8 +1,8 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:well_me/check.dart';
-import 'package:well_me/styles/styles.dart';
+
+bool check2 = true;
+int change = 0;
 
 class WaveAnimation extends StatefulWidget {
   const WaveAnimation({
@@ -44,14 +44,16 @@ class _WaveAnimationState extends State<WaveAnimation>
 
   incrementCounter() {
     setState(() {
+      change = 1;
       counter = counter + 10;
+      print(counter);
     });
     if (counter > 100) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         backgroundColor: Colors.white,
         content: Text(
           'Goal Achieved',
-          style: TextStyles.body2,
+          style: TextStyle(color: Colors.black),
         ),
       ));
       counter = 100;
@@ -60,10 +62,21 @@ class _WaveAnimationState extends State<WaveAnimation>
 
   @override
   Widget build(BuildContext context) {
-    if (widget.check) {
-      counter = 0;
-    } else {
-      counter = widget.glassDrank * 10;
+
+    check2 = widget.check;
+
+    if(change == 1){
+      check2 = true;
+      change = 0;
+    }
+
+    print(counter);
+    if (!check2) {
+      if (widget.check) {
+        counter = 0;
+      } else {
+        counter = widget.glassDrank * 10;
+      }
     }
 
     return Container(
@@ -97,7 +110,6 @@ class _WaveAnimationState extends State<WaveAnimation>
               style: const TextStyle(
                 fontSize: 120,
                 color: Colors.white,
-                fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -112,9 +124,9 @@ class _WaveAnimationState extends State<WaveAnimation>
                   Icons.water_drop,
                   color: Colors.blue,
                 ),
-                label: Text(
+                label: const Text(
                   'Add Water',
-                  style: TextStyles.body2,
+                  style: TextStyle(color: Colors.black),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
@@ -250,4 +262,3 @@ class TweenWave extends Animatable<List<Offset>> {
     }, growable: false);
   }
 }
-

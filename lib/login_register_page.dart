@@ -29,13 +29,13 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
   String _password = "";
 
   void _submit() async {
-    final isValid = _form.currentState!.validate();
+    // final isValid = _form.currentState!.validate();
 
-    if (!isValid) {
-      return;
-    }
+    // if (!isValid) {
+    //   return;
+    // }
 
-    _form.currentState!.save();
+    // _form.currentState!.save();
 
     if (isLogin) {
       Navigator.pushReplacement(
@@ -394,53 +394,53 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
                   const SizedBox(
                     height: 80,
                   ),
-                if (isLogin)
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '- Or sign in with -',
-                        style: TextStyle(
-                            color: Color.fromRGBO(127, 127, 127, 10),
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins'),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                if (isLogin)
-                  const SizedBox(
-                    height: 20,
-                  ),
-                if (isLogin)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          ;
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: const Offset(0, 3),
-                              )
-                            ],
-                          ),
-                          child: Image.network(
-                            "https://raw.githubusercontent.com/noirelyx/SE_Project/main/google.png",
-                            height: 40,
-                          ),
-                        ),
-                      ),
+                // if (isLogin)
+                //   const Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       Text(
+                //         '- Or sign in with -',
+                //         style: TextStyle(
+                //             color: Color.fromRGBO(127, 127, 127, 10),
+                //             fontWeight: FontWeight.bold,
+                //             fontFamily: 'Poppins'),
+                //         textAlign: TextAlign.center,
+                //       ),
+                //     ],
+                //   ),
+                // if (isLogin)
+                //   const SizedBox(
+                //     height: 20,
+                //   ),
+                // if (isLogin)
+                //   Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //     children: [
+                //       InkWell(
+                //         onTap: () {
+                //           ;
+                //         },
+                //         child: Container(
+                //           padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
+                //           decoration: BoxDecoration(
+                //             border: Border.all(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(12),
+                //             color: Colors.white,
+                //             boxShadow: [
+                //               BoxShadow(
+                //                 color: Colors.grey.withOpacity(0.5),
+                //                 spreadRadius: 2,
+                //                 blurRadius: 5,
+                //                 offset: const Offset(0, 3),
+                //               )
+                //             ],
+                //           ),
+                //           child: Image.network(
+                //             "https://raw.githubusercontent.com/noirelyx/SE_Project/main/google.png",
+                //             height: 40,
+                //           ),
+                //         ),
+                //       ),
                       // Container(
                       //   padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
                       //   decoration: BoxDecoration(
@@ -481,8 +481,8 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
                       //     height: 40,
                       //   ),
                       // ),
-                    ],
-                  ),
+                    // ],
+                  // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
